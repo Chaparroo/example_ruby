@@ -5,10 +5,10 @@
 ### users
 | Field | Type | Notes |
 |---|---|---|
-| nombre | string | |
-| identificacion | string | |
+| name | string | |
+| identification | string | |
 | email | string | unique |
-| telefono | string | E.164 format e.g. +573001234567 |
+| phone | string | E.164 format e.g. +573001234567 |
 | password_digest | string | managed by has_secure_password |
 
 ---
@@ -16,19 +16,19 @@
 ### hotels
 | Field | Type | Notes |
 |---|---|---|
-| nombre | string | |
-| direccion | string | |
-| ciudad | string | |
-| pais | string | |
-| descripcion | text | |
+| name | string | |
+| address | string | |
+| city | string | |
+| country | string | |
+| description | text | |
 
 ---
 
 ### room_types
 | Field | Type | Notes |
 |---|---|---|
-| nombre | string | e.g. Suite, Doble, Sencilla |
-| descripcion | text | |
+| name | string | e.g. Suite, Double, Single |
+| description | text | |
 
 ---
 
@@ -37,9 +37,9 @@
 |---|---|---|
 | hotel_id | references | belongs_to :hotel |
 | room_type_id | references | belongs_to :room_type |
-| numero | string | room identifier e.g. "302" |
-| descripcion | text | |
-| precio | decimal | precision: 10, scale: 2 |
+| number | string | room identifier e.g. "302" |
+| description | text | |
+| price | decimal | precision: 10, scale: 2 |
 
 ---
 
@@ -50,9 +50,9 @@
 | room_id | references | belongs_to :room |
 | check_in | date | |
 | check_out | date | |
-| cantidad_personas | integer | |
-| precio_total | decimal | precision: 10, scale: 2 — frozen at booking time |
-| estado | integer | enum: pending, confirmed, cancelled, expired |
+| guests_count | integer | |
+| total_price | decimal | precision: 10, scale: 2 — frozen at booking time |
+| status | integer | enum: pending, confirmed, cancelled, expired |
 
 ---
 
